@@ -1,0 +1,354 @@
+.container{
+    padding: 0 14rpx;
+}
+.car_name{
+    padding: 20rpx 0;
+    color: #555;
+    font-size: 16px;
+    text-align: center;
+}
+.time_wrap{
+    display: flex;
+    text-align: center;
+    padding-top: 50rpx;
+    padding-bottom: 50rpx;
+}
+.time_wrap .li{
+    flex: 1;
+}
+.time_wrap .li text{
+    display: block;
+}
+.time{
+    color: #e84233;
+}
+.time_icon{
+    width: 54rpx;
+    height: 54rpx;
+}
+.time_tip{
+    font-size: 16px;
+    color: #a9a9a9;
+}
+.br{
+    position: relative;
+}
+.br::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -10%;
+    width: 1rpx;
+    height: 120%;
+    background-color: #d7d7d7;
+}
+.rent_time{
+    overflow: hidden;
+    line-height: 88rpx;
+    border-top: 1rpx solid #dfdfdf;
+    border-bottom: 1rpx solid #dfdfdf;
+}
+.time_total{
+    float: right;
+}
+.tip{
+    text-align: center;
+    font-size: 16px;
+    padding: 28rpx 0;
+}
+.cli{
+	position: relative;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #fff;
+    line-height: 88rpx;
+    padding: 0 16rpx;
+    overflow: hidden;
+}
+.cli_t{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.cli_b{
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.cli_ex{
+	margin: 18rpx 0 0;
+}
+.cli_adress .val{
+	padding-right:34rpx;
+	width:434rpx;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	text-align: right;
+}
+.cli_adress .val::after{
+	position: absolute;
+	right: 0;
+	top: 0;
+	content: "";
+	width: 88rpx;
+    height: 88rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/arrow_r.png) right center no-repeat ;
+	background-size: 44%;
+}
+.tip_icon{
+    display: inline-block;
+    width: 34rpx;
+    height: 34rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/tips.png) center center no-repeat ;
+    background-size: 96% 96%;
+    vertical-align: middle;
+    margin-top: -5rpx;
+    margin-left: 10rpx;
+}
+.val{
+    float: right;
+}
+.picc_wrap {
+    padding: 18rpx 0;
+}
+.picc_wrap image{
+    width: 100%;
+    height: 146rpx;
+}
+.agreement text{
+    color:#e84233;
+    padding-bottom: 180rpx;
+}
+.submit{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #e84233;
+    background-color: #fff;
+    border: 0;
+    font-size: 16px;
+    border-radius: 0;
+}
+.btn_act{
+    background-color: #e84233;
+    color: #fff;
+    border-radius: 0;
+}
+.rent_tip{
+    display: flex;
+    padding-bottom: 12rpx;
+}
+.rent_tip .item{
+    flex: 1;
+    text-align: center;
+}
+
+.rent_tip .item text::before{
+    content: "";
+    display: inline-block;
+    width:28rpx;
+    height: 28rpx;
+    border:1px solid #ddd;
+    border-radius: 100%;
+    margin-right: 8rpx;
+    vertical-align: middle;
+}
+.can_rent::before{
+    background-color: #ddd;
+}
+.row{
+    display: flex;
+    text-align: center;
+}
+.row text{
+    flex: 1;
+}
+.date_modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow-y: scroll; 
+    z-index: 1200;
+}
+.date_modal.show{
+    display: block;
+    
+}
+.date_tooltip{
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    background-color: #fff;
+}
+.date_place{
+    height: 250rpx;
+}
+.cell{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 101;
+    width: 100%;
+}
+.oly{
+    overflow-y: scroll;
+}
+.date_modal .close_modal{
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+.date_modal .rent_tip{
+    background-color: #f7f7f7;
+    padding: 16rpx 0;
+}
+.date_modal .close_modal text{
+    z-index: 102;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    height: 80rpx;
+    width: 80rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/back.png) center center no-repeat;
+    background-size: 50% 50%;
+}
+.date_bg{
+    background-color: #fff;
+
+}
+.weeks_head{
+    background-color: #f7f7f7;
+    display: flex;
+    padding: 16rpx 0;
+}
+.weeks_head text{
+    flex: 1;
+    text-align: center;
+}
+.month_view,.current_month_view{
+    display: block;
+    overflow: hidden;
+    font-size:12px;
+}
+.month_view .date_cell,.current_month_view .date_cell{
+    float: left;
+    width: 14.28%;
+    height: 78rpx;
+    line-height: 78rpx;
+    text-align: center;
+}
+.month_view .date_cell.past{
+	color: #e2e2e2;
+}
+.month_head{
+    line-height: 80rpx;
+    text-align: center;
+    border-bottom: 1px solid #e2e2e2;
+    color: #a5a5a5;
+}
+.time_modal{
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.5);
+	z-index: 1300;
+}
+.time_modal.show{
+	display: block;
+}
+.time_modal .time_bar{
+	background-color: #e2e2e2;
+	color: #999;
+}
+.time_modal .time_content{
+	background-color: #fff;
+	width: 86%;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -43%;
+	margin-top: -300rpx;
+	z-index: 1400;
+}
+.time_modal .flex{
+	display: flex;
+}
+.time_modal .flex view{
+	flex: 1;
+	text-align: center;
+}
+.time_modal .flex .close{
+	text-align: left;
+	color: #e84233;
+	padding-left: 10rpx;
+}
+.time_modal .flex .ok{
+	text-align: right;
+	padding-right: 10rpx;
+}
+.time_bar view{
+	padding: 16rpx 0;
+}
+
+.time_modal .time_head view{
+	line-height: 74rpx;
+	border-bottom: 1px solid #e2e2e2
+}
+.time_modal .morning[data-cur="false"]{
+	color: #e84233;
+	border-color: #e84233;
+}
+.time_modal .afternoon[data-cur="true"]{
+	color: #e84233;
+	border-color: #e84233;
+}
+.time_cell{
+	float: left;
+	width: 16.6%;
+	text-align:center;
+	line-height:88rpx;
+}
+.time_cell[data-select="true"]{
+	position: relative;
+	color: #fff;
+}
+.time_cell[data-select="true"]::after{
+	display: block;
+    content: "";
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    margin-left: -30rpx;
+    margin-top: -30rpx;
+    position: absolute;
+    z-index: -1;
+    background-color: #e84233;
+
+}
+.time_inner{
+	overflow: hidden;
+	border-bottom: 1px solid #e2e2e2;
+	color: #999;
+}
+.time_con{
+	overflow: hidden;
+}
+.time_inner .time_tit{
+	float: left;
+	width: 20px;
+	line-height:88rpx;
+	text-align: center;
+	border-right: 1px solid #e2e2e2;
+}

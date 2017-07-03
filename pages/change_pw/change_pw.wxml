@@ -1,0 +1,10 @@
+<view class="item">
+    <input placeholder="原始密码" password="true" bindinput="oldPwIn"/>
+</view>
+<view class="item">
+    <input placeholder="请输入6~16位新密码" password="true" bindinput="newPwIn"/>
+</view>
+<view class="item">
+    <input placeholder="确认新密码" password="true" bindinput="comfirmPwIn"/>
+</view>
+<view class="item change_pw" bindtap="submitPw">修改密码</view>

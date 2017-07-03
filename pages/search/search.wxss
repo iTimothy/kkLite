@@ -1,0 +1,680 @@
+@import "/template/navbar/navbar.wxss";
+.position{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top:10rpx;
+  padding: 10rpx 80rpx;
+  border-radius: 1000px;
+  z-index: 100;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .4);
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+max-width:50%;
+}
+.position_place{
+    height: 90rpx;
+    background-color: #fff;
+}
+.position::before{
+  content: "";
+  position: absolute;
+  left: 14rpx;
+  top: 50%;
+  margin-top:-20rpx; 
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  background: transparent url(http://192.168.1.240/kkLite/asset/position.png) left center no-repeat;
+  background-size: 100%;
+}
+.position::after{
+  content: "";
+  position: absolute;
+  right: 14rpx;
+  top: 50%;
+  margin-top:-20rpx; 
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  background: transparent url(http://192.168.1.240/kkLite/asset/arrow-r.png) left center no-repeat;
+  background-size: 100%;
+}
+.filter_bar{
+    display: flex;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+.filter_bar text{
+    flex: 1;
+    line-height: 80rpx;
+    height: 80rpx;
+    color: #bbb;
+}
+.filter_bar text.act{
+    color: #e84233;
+}
+.car_item{
+  display: flex;
+  font-size: 14px;
+  background: #fff;
+  padding: 4px;
+}
+.car_item .img_wrap{
+  width: 120px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+.car_item image{
+  width: 100%;
+  height: 100% !important;
+}
+.car_item .car_con{
+  flex: 1;
+  padding: 2px 4px;
+  
+}
+.car_item .car_info{
+  display: flex;
+  justify-content: space-between;
+}
+.car_item .car_name{
+  color: #555;
+}
+.car_item .car_price{
+  color: #e84233; 
+}
+.car_item .car_price::before{
+  content: "￥";
+  font-size: 12px;
+}
+.car_item .car_price::after{
+  content: "/天";
+  font-size: 12px;
+}
+.car_item .car_props{
+  line-height: 1.5em;
+  min-height: 22px;
+  flex-wrap: wrap;
+  margin: 9px 0;
+}
+.car_item .car_props text{
+  flex: 1;
+  background: #e84233;
+  font-size: 12px;
+  color: #fff;
+  margin: 0 2px;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+.car_item .car_adress{
+  color: #bbb;
+  display: flex;
+  padding-bottom:6px;
+  border-bottom: 1px solid #eee;
+  justify-content:space-between;
+}
+.car_item .car_adress text{
+  height: 1em;
+  line-height: 1em;
+  overflow: hidden;
+}
+.car_item .car_adress .kms{
+  min-width: 20%;
+  text-align: right;
+}
+.load_tip{
+ font-size: 12px;
+ text-align: center;
+ color: #bbb;
+ padding: 4px 0;
+}
+/****************dateModal****************/
+.rent_tip{
+    display: flex;
+    padding-bottom: 12rpx;
+}
+.rent_tip .item{
+    flex: 1;
+    text-align: center;
+}
+
+.rent_tip .item text::before{
+    content: "";
+    display: inline-block;
+    width:28rpx;
+    height: 28rpx;
+    border:1px solid #ddd;
+    border-radius: 100%;
+    margin-right: 8rpx;
+    vertical-align: middle;
+}
+.can_rent::before{
+    background-color: #ddd;
+}
+.row{
+    display: flex;
+    text-align: center;
+}
+.row text{
+    flex: 1;
+}
+.date_modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+   
+    overflow-y: scroll; 
+    z-index: 3000;
+}
+.date_modal .date_bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 3100;
+    background-color: #fff;
+}
+.date_modal_mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4); 
+    z-index: 3005;
+}
+.date_modal.show{
+    display: block;
+    
+}
+.date_tooltip{
+    background-color: #fff;
+}
+.cell{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 101;
+    width: 100%;
+}
+.oly{
+    overflow-y: scroll;
+}
+.date_modal .close_modal{
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+.date_modal .rent_tip{
+    background-color: #f7f7f7;
+    padding: 16rpx 0;
+}
+.date_modal .close_modal text{
+    z-index: 102;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    height: 80rpx;
+    width: 80rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/back.png) center center no-repeat;
+    background-size: 50% 50%;
+}
+.date_bg{
+    background-color: #fff;
+
+}
+.weeks_head{
+    background-color: #fff;
+    display: flex;
+    padding: 16rpx 0;
+}
+.weeks_head text{
+    flex: 1;
+    text-align: center;
+}
+.month_view,.current_month_view{
+    display: block;
+    overflow: hidden;
+    font-size:12px;
+}
+.month_view{
+    display: none;
+}
+.show_month_view{
+    display: block;
+}
+.month_view .date_cell{
+    position: relative;
+}
+.month_view .date_cell text{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1300;
+}
+.month_view .date_cell,.current_month_view .date_cell{
+    float: left;
+    width: 14.28%;
+    height: 78rpx;
+    line-height: 78rpx;
+    text-align: center;
+}
+.month_view .date_cell.past{
+	color: #e2e2e2;
+}
+.month_view .date_cell[data-select="true"]{
+    color: #fff;
+}
+.month_view .date_cell[data-select="true"]::after{
+	display: block;
+    content: "";
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    margin-left: -30rpx;
+    margin-top: -30rpx;
+    position: absolute;
+    background-color: #e84233;
+    z-index: 1250;
+
+}
+.month_head_wrap{
+    display: flex;
+}
+.month_head{
+    flex: 1;
+    line-height: 80rpx;
+    text-align: center;
+    border-bottom: 1px solid #e2e2e2;
+    color: #a5a5a5;
+}
+.month_head.current_month{
+    border-color: #e84233;
+    color: #e84233;
+}
+/****************dateModal****************/
+.time_bar{
+    display: flex;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    color: #777;
+}
+.tb_cell{
+    display: flex;
+    flex: 1;
+    text-align: center;
+    line-height: 90rpx;
+}
+.less{
+    flex: 1;
+    background: transparent url(http://192.168.1.240/kkLite/asset/downb.png) center center no-repeat;
+    background-size: 35%;
+}
+.tb_text{
+    flex: 1;
+}
+.add{
+    flex: 1;
+    background: transparent url(http://192.168.1.240/kkLite/asset/upb.png) center center no-repeat;
+     background-size: 35%;
+}
+.next_btn{
+    line-height: 100rpx;
+    color: #e84233;
+    text-align: center;
+    font-size: 16px;
+}
+.search_time{
+    display: flex;
+    height: 100rpx;
+}
+.search_time_place{
+    background-color: #fff;
+}
+.st_cell{
+    text-align: center;
+    flex: 1;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.st_cell_1.st_cell_act{
+   /*background-image: url(http://192.168.1.240/kkLite/asset/se1.jpg);*/
+   background-color: #e84233;
+}
+.st_cell_2.st_cell_act{
+   /*background-image: url(http://192.168.1.240/kkLite/asset/se2.jpg);*/
+   background-color: #e84233;
+}
+.st_cell text{
+    display: block;
+}
+.st_text{
+    color: #bbb;
+    font-size: 12px;
+    padding: 20rpx 0 5rpx;
+}
+.st_time{
+    color: #777;
+    font-size: 14px;
+}
+.st_cell_act .st_text,.st_cell_act .st_time{
+    color: #fff;
+}
+/*********filter_modal 综合排序层*********/
+.filter_modal{
+    display: none;
+}
+.filter_modal.show{
+    display: block;
+}
+.filter_modal,.filter_modal .content{
+    position: fixed;
+    left: 0;
+    top: 267rpx;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+}
+.filter_modal .mask{
+    position: fixed;
+    top: 270rpx;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2001;
+    background-color: rgba(0, 0, 0, .7)
+}
+.filter_modal .content{
+    z-index: 2500;
+    height: auto;
+}
+
+.complex{
+    display: none;
+    background-color: #fff;
+}
+
+.condition{
+    display: none;
+    background-color: #fff;
+    color: #777;
+    padding: 0 4%;
+}
+.complex text{
+    position: relative;
+    display: block;
+    background: #fff;
+    line-height: 94rpx;
+    color: #bbb;
+    padding-left: 4%; 
+}
+.complex text.act{
+    color: #e84233;
+}
+.complex text.act::after{
+    position: absolute;
+    left: 4%;
+    bottom: 0;
+    width: 92%;
+    display: block;
+    content: "";
+    height: 2rpx;
+    background-color: #e84233;
+}
+.slide_step{
+    display: flex;
+    text-align: center;
+    padding-bottom: 14rpx;
+    padding-left: 2%;
+    color: #e84233;
+}
+.step0{
+    text-align: left;
+}
+.step1{
+    text-indent:-52rpx;
+}
+.step2{
+    text-indent:-17rpx;
+}
+.step3{
+    text-indent: 18rpx;
+}
+.stepn{
+    text-align: right;
+}
+.slide_step .step{
+    flex: 1;
+}
+.slide_bg{
+    position: absolute;
+    top: 29rpx;
+    left: 2%;
+    width:96%;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    height: 8rpx;
+    z-index: 2600;
+    line-height:0;
+    font-size:0;
+    overflow: hidden;
+}
+.slide_inner{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-color: #0090fe;
+    background-color: #0090fe;
+}
+.slide_content{
+    position: relative;
+    height: 66rpx;
+}
+.slide_btn{
+    position: absolute;
+    top:0;
+    width: 66rpx;
+    height: 66rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/price-slider.png) center center no-repeat;
+    background-size: 100% 100%;
+    z-index: 2700;
+}
+.slide_lbtn{
+    left: 0;
+}
+.slide_rbtn{
+    right: 0;
+}
+.condition .tit{
+    line-height: 100rpx;
+    color: #777;
+}
+.condition .item{
+    padding: 14rpx 0;
+    overflow: hidden;
+    color: #777;
+    line-height: 48rpx;
+}
+.condition .item .item_inner{
+    float: right;
+    overflow: hidden;
+    color: #bbb;
+}
+.condition .item .item_inner text{
+    float: left;
+    padding: 0 32rpx;
+    line-height: 48rpx;
+    border-radius: 60rpx;
+    border: 1px solid #bbb;
+    margin-left: 16rpx;
+}
+.condition .item .item_inner text.act{
+    color: #e84233;
+    border-color: #e84233;
+}
+.filter_modal .btn_wrap{
+    display: flex;
+    color: #bbb;
+}
+.filter_modal .btn_wrap text{
+    flex: 1;
+    text-align: center;
+    line-height: 110rpx;
+}
+.filter_modal .btn_wrap .btnl{
+    text-align: left;
+}
+.filter_modal .btn_wrap .btnr{
+    text-align: right;
+    color: #777;
+}
+.business{
+    background-color: #fff;
+    height: 78%;
+    display: none;
+}
+.s_wrap{
+    display: flex;
+    height: 100%;
+}
+.business .s_left{
+    width: 30%;
+    background-color: #efefef;
+    height: 100%;
+    text-align: center;
+}
+.business .s_wrap{
+    height: 89%;
+}
+.business .s_left text{
+    display: block;
+    line-height: 88rpx;
+}
+.business .s_left text.act{
+    background-color: #fff;
+}
+.business .s_right{
+    flex: 1;
+}
+.business .s_right .tit{
+    display: block;
+    background-color: #efefef;
+    padding-left: 18rpx;
+}
+.business .li{
+    margin-left: 18rpx;
+    padding: 20rpx 0;
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    background-image: url(http://192.168.1.240/kkLite/asset/coo-s.png);
+    background-size: 34rpx;
+    border-bottom: 1rpx solid #dddddd;
+}
+.business .li.act{
+    background-image: url(http://192.168.1.240/kkLite/asset/coo-se.png);
+}
+.business .s_tit{
+    display: block;
+    color: #333;
+    font-size: 16px;
+    padding-bottom: 16rpx;
+    padding-right: 14%;
+    word-break: break-all;
+}
+.business .adr{
+    display: block;
+    color: #8a8a8a;
+    padding-right: 14%;
+    word-break: break-all;
+}
+.business .btn_wrap{
+    padding: 0 28rpx;
+}
+.complex.show,.condition.show,.business.show{
+    display: block;
+}
+.carlist_picker{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4000;
+    background-color: #fff;
+}
+.carlist_picker.show{
+    display: block;
+}
+.overflow{
+    height: 300px;
+    overflow: hidden;
+}
+.carlist_picker .cp_tit{
+    position: relative;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.carlist_picker .close_cp{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 88rpx;
+    height: 88rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/close.png) center center no-repeat;
+    background-size: 50%;
+}
+.carlist_picker .body{
+    display: none;
+    overflow: hidden;
+    height: 93%;
+}
+.carlist_picker .show_carcate,.carlist_picker .show_carname{
+    display: block;
+}
+.carlist_picker .cp_left{
+    height: 100%;
+    text-align: center;
+    float: left;
+    width: 30%;
+}
+.carlist_picker .body text{
+    display: block;
+    border-bottom: 1rpx solid #d2d2d2;
+    line-height: 80rpx;
+    
+}
+.carlist_picker .body .act{
+    background-color: #e84233;
+    color: #fff;
+}
+.carlist_picker .cp_right{
+    height: 100%;
+    float: left;
+    background-color: #efedee;
+    text-indent: 20rpx;
+    width: 70%;
+}
+.carlist_picker .cp_right text{
+    width: 100%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}

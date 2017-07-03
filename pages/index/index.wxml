@@ -1,0 +1,57 @@
+<view class="index">
+  <view class="position" bindtap="chooseCity">{{adress}}</view>
+  <view class="banner_container">
+    <swiper class="banner_swiper" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="widthFix"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="products">
+    <navigator url="#" class="p_item longrent">长租</navigator>
+    <navigator url="#" class="p_item prebook">预约用车</navigator>
+    <navigator url="#" class="p_item company">企业用车</navigator>
+    <navigator url="#" class="p_item driver">代驾</navigator>
+  </view>
+
+  <view class="cooperation">
+    <text class="tit">合作商家</text>
+    <view class="cooperation_nav">
+      <navigator url="#" class="c_item">安平租车</navigator>
+      <navigator url="#" class="c_item">里程无限</navigator>
+      <navigator url="#"class="c_item">更多</navigator>
+    </view>
+  </view>
+
+  <view><text class="near_tit">附近车辆</text></view>
+
+  <scroll-view class="car_list" scroll-y="true" enable-back-to-top="true">
+    <view class="car_item" wx:for="{{carList}}"  bindtap="turnToCar" data-id="{{item.carId}}">
+      <view class="img_wrap">
+        <image src="{{item.imagePic}}" data-index="{{index}}" binderror="imgLoadErr"></image>
+      </view>
+      <view class="car_con">
+        <view class="car_info">
+          <text class="car_name">{{item.carName}}</text>
+          <text class="car_price">{{item.money}}</text>
+        </view>
+        <view class="car_props">
+          <text wx:if="{{item.isCarPromotion === 1}}">满车日促销</text>
+          <text wx:if="{{item.isCarDoor === 1}}">送车上门</text>
+          <text wx:if="{{item.isResponse === 1}}">自动接单</text>
+        </view>
+        <view class="car_adress">
+          <text class="detail">{{item.address}}</text>
+          <text class="kms">{{item.distanceNum}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="load_tip" wx:hidden="{{isLoad}}">{{loadTip}}</view>
+  <import src="/template/navbar/navbar.wxml"/>
+  <template is="navbar"  data="{{navConfigArr: navConfigArr}}"/>
+
+</view>

@@ -1,0 +1,16 @@
+<text class="tit" wx:if="{{isShow}}">选择城市</text>
+<view class="city_list" wx:if="{{isShow}}" bindtap="chooseCity">
+    <block wx:for="{{cityData}}">
+        <text data-info='{"city": "{{item.city}}","longitude": {{item.longitude}},"latitude": {{item.latitude}} }'>{{item.city}}市</text>
+    </block>
+</view>
+<text class="tit" wx:if="{{isShow}}">当前定位</text>
+<view class="geolocation" bindtap="chooseLocation"><text>地图选择精准位置</text></view>
+<!--<view class="map_container" wx:if="{{showMap}}">
+    <map id="map" class="map" show-location style="height:{{mapHeight}}px" markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="regionchange"/>
+    <view class="adress_list" bindtap="chooseAdress">
+        <block wx:for="{{adressList}}">  
+            <text data-lngs="{{item.location}}" data-desc="{{item.name}}">{{item.name}}</text>
+        </block>
+    </view>
+</view>-->

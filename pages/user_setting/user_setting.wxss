@@ -1,0 +1,47 @@
+.item{
+    position: relative;
+    display: flex;
+    background-color: #fff;
+    padding-right: 16rpx;
+    padding-left: 16rpx;
+    color: #777;
+    height: 92rpx;
+    line-height: 92rpx;
+    text-align: right;
+}
+.tit{
+    width: 150rpx;
+    text-align: left;
+}
+.item input,.c{
+    flex: 1;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1rpx solid #eee;
+    height: 91rpx;
+    line-height: 91rpx;
+    text-align: right;
+    color: #bbb;
+}
+.c{
+    color: #e84233;
+}
+.change_pw{
+    margin: 18rpx 0;
+}
+.change_pw::after{
+    content: "";
+    position: absolute;
+    right: 10rpx;
+    top: 0;
+    width: 92rpx;
+    height: 92rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/arrow_r.png) right center no-repeat;
+    background-size: 50%;
+}
+.login_out{
+    display: block;
+    text-align: center;
+    color: #e84233;
+}

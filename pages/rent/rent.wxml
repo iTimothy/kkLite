@@ -1,0 +1,124 @@
+<view class="container">
+    <view class="car_name">{{carName}}</view>
+    <view class="time_wrap">
+        <view class="li br" catchtap="getTakeTime">
+            <image src="http://192.168.1.240/kkLite/asset/time_01.png" mode="aspectFill" class="time_icon" wx:if="{{showTakeIcon}}"></image>
+            <text class="time" wx:if="{{showTakeTime}}">
+                <text>{{takeMonth}}</text>
+                <text>{{takeHour}}:{{takeMinute}}:00</text>
+            </text>
+            <text class="time_tip">取车时间</text>
+        </view>
+        <view class="li" catchtap="getByTime">
+            <image src="http://192.168.1.240/kkLite/asset/time_02.png" mode="aspectFill" class="time_icon" wx:if="{{showByIcon}}"></image>
+            <text class="time" wx:if="{{showByTime}}">
+                <text>{{byMonth}}</text>
+                <text>{{byHour}}:{{byMinute}}:00</text>
+            </text>
+            <text class="time_tip">还车时间</text>
+        </view>
+    </view>
+    <view class="rent_time">
+        租车时长：
+        <text class="time_total">{{rentTime}}</text>
+    </view>
+    <view class="tip">费用</view>
+    <view class="cli cli_t">
+        租金费用:
+        <text class="val">{{rentMoney}}</text>
+    </view>
+    <view class="cli">
+        保险费用:<text class="tip_icon"></text>
+        <text class="val">{{insurance}}</text>
+    </view>
+    <view class="cli">
+        押金费用:
+        <text class="val">{{deposit}}</text>
+    </view>
+    <view class="cli cli_b">
+        油费:
+        <text class="val">暂无</text>
+    </view>
+	<view class="cli cli_ex" wx:if="{{showCardoor}}">
+        需要送车上门:
+		<switch type="switch"  class="val" color="#e84233" bindchange="switchCardoor"/>
+    </view>
+	<view class="cli cli_adress" wx:if="{{isSelectCardoor}}" catchtap="getAdress">
+        指定送车地点:
+        <text class="val">{{cardoorAdress? cardoorAdress : '请选择送车地点'}}</text>
+    </view>
+	<view class="cli" wx:if="{{isSelectCardoor}}">
+        送车费用:
+        <text class="val">{{cardoorMoney}}</text>
+    </view>
+    <view class="picc_wrap">
+        <image src="http://192.168.1.240/kkLite/asset/picc.jpg" mode="scaleToFill"></image>
+    </view>
+    <view class="agreement">
+         <checkbox value="value" checked="true" color="#e84233"/>我同意<text>快快优车会员服务协议</text>
+    </view>
+    <button class="submit" hover-class="btn_act" bindtap="submitOrder">提交订单</button>
+</view>
+<view class="date_modal{{showDateModal ? ' show' : ''}}">
+    <view class="date_tooltip">
+        <view class="close_modal"><text bindtap="closeDateModal"></text>查看日期</view>
+        <view class="rent_tip">
+            <text class="item"><text class="can_rent">全天不可租</text></text>
+            <text class="item"><text>部分时间可租</text></text>
+        </view>
+        <view class="weeks_head"><text wx:for="{{weeks}}">{{item}}</text></view>
+    </view>
+    <view class="date_bg">
+            <view class="date_place"></view>
+            <view class="month_head">{{months[0]}}月</view>
+			<view class="month_picker" catchtap="pickMonth">
+				<view class="month_view">
+					<block wx:for="{{monthViewArr[0]}}">
+						<text data-date="{{item.text}}" data-past="{{(item === 0 || item.past === true) ? '0': '1'}}" class="date_cell {{(item !== 0 && item.past === true) ? 'past': ''}}"><text>{{item === 0 ? '' : monthArr[0][index]}}</text></text>
+					</block>
+				</view>
+				<view class="month_head">{{months[1]}}月</view>
+				<view class="month_view">
+					<block wx:for="{{monthViewArr[1]}}">
+						<text data-date="{{item.text}}" class="date_cell"><text>{{item === 0 ? '' : monthArr[1][index]}}</text></text>
+					</block>
+				</view>
+				<view class="month_head">{{months[2]}}月</view>
+				<view class="month_view">
+					<block wx:for="{{monthViewArr[2]}}">
+						<text data-date="{{item.text}}" class="date_cell"><text>{{item === 0 ? '' : monthArr[2][index]}}</text></text>
+					</block>
+				</view>
+			</view>
+            
+    </view>
+</view>
+<view class="time_modal {{showTimeModal ? 'show' : ''}}">
+	<view class="time_content">
+		<view class="flex time_bar">
+			<view class="close"><text catchtap="closeTimeModal">关闭</text></view>
+			<view>可租时间</view>
+			<view class="ok"><text catchtap="confirmTime">确认</text></view>
+		</view>
+		<view class="flex time_head" catchtap="toggleHalfDayFn">
+			<view data-cur="{{toggleHalfDay}}" class="morning" id="morning">上午</view>
+			<view data-cur="{{toggleHalfDay}}" class="afternoon" id="afternoon">下午</view>
+		</view>
+		<view class="time_inner">
+			<view class="time_tit">小时</view>
+			<view class="time_con" catchtap="selectHour">
+				<block wx:for="{{hours}}">
+					<text class="time_cell" data-index="{{index}}" data-select="{{item.isSelect}}">{{item.num}}</text>
+				</block>
+			</view>
+		</view>
+		<view class="time_inner">
+			<view class="time_tit">分钟</view>
+			<view class="time_con" catchtap="selectMinutes">
+				<block wx:for="{{minutes}}">
+					<text class="time_cell" data-index="{{index}}" data-select="{{item.isSelect}}">{{item.num}}</text>
+				</block>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,210 @@
+<!--{{showCarlistPicker ? 'overflow' : ''}}-->
+<view class="{{showFilterModal ? 'overflow' : ''}}">
+    <view class="position" bindtap="chooseCity">{{adress}}</view>
+    <view class="position_place"></view>
+    <view class="search_time search_time_place" bindtap="toggleDateModal">
+        <view class="st_cell st_cell_1" data-index="0">
+            <text class="st_text" data-index="0">取车时间</text>
+            <text class="st_time" data-index="0">{{startTime[0]}} {{startTime[1]}}:00</text>
+        </view>
+        <view class="st_cell st_cell_2" data-index="1">
+            <text class="st_text" data-index="1">还车时间</text>
+            <text class="st_time" data-index="1">{{endTime[0]}} {{endTime[1]}}:00</text>
+        </view>
+    </view>
+    <view class="filter_bar" catchtap="toggleFilter">
+        <text class="{{filterNum == 0 ? 'act': ''}}" data-index="0">{{orderTypeTxt}}</text>
+        <text class="{{filterNum == 1 ? 'act': ''}}" data-index="1">筛选条件</text>
+        <text class="{{filterNum == 2 ? 'act': ''}}" data-index="2">选择商家</text>
+    </view>
+    <scroll-view class="car_list" scroll-y="true" enable-back-to-top="true">
+    <view class="car_item" wx:for="{{carList}}"  bindtap="turnToCar" data-id="{{item.carId}}">
+        <view class="img_wrap">
+        <image src="{{item.imagePic}}" data-index="{{index}}"></image>
+        </view>
+        <view class="car_con">
+        <view class="car_info">
+            <text class="car_name">{{item.carName}}</text>
+            <text class="car_price">{{item.money}}</text>
+        </view>
+        <view class="car_props">
+            <text wx:if="{{item.isCarPromotion === 1}}">满车日促销</text>
+            <text wx:if="{{item.isCarDoor === 1}}">送车上门</text>
+            <text wx:if="{{item.isResponse === 1}}">自动接单</text>
+        </view>
+        <view class="car_adress">
+            <text class="detail">{{item.address}}</text>
+            <text class="kms">{{item.distanceNum}}</text>
+        </view>
+        </view>
+    </view>
+    </scroll-view>
+    <view class="load_tip" wx:hidden="{{isLoad}}">{{carList.length === 0 ? '暂无数据' : loadTip}}</view>
+</view>
+
+
+ <!--日期控件-->
+ <view class="date_modal{{showDateModal ? ' show' : ''}}">
+    <view class="date_modal_mask" catchtap="submitSearch"></view>
+    <view class="date_bg">
+            <view class="search_time" bindtap="toggleTime">
+                <view class="st_cell st_cell_1 {{toggleTime == 0 ? 'st_cell_act' : ''}}" data-index="0">
+                    <text class="st_text" data-index="0">取车时间</text>
+                    <text class="st_time" data-index="0">{{startTime[0]}} {{startTime[1]}}:00</text>
+                </view>
+                <view class="st_cell st_cell_2 {{toggleTime == 1 ? 'st_cell_act' : ''}}" data-index="1">
+                    <text class="st_text" data-index="1">还车时间</text>
+                    <text class="st_time" data-index="1">{{endTime[0]}} {{endTime[1]}}:00</text>
+                </view>
+            </view>
+            <view class="month_head_wrap" catchtap="toggleMonth">
+                <view data-index="0" class="month_head {{monthToggle == 0 ? 'current_month' : ''}}">{{months[0]}}月</view>
+                <view data-index="1" class="month_head {{monthToggle == 1 ? 'current_month' : ''}}">{{months[1]}}月</view>
+                <view data-index="2" class="month_head {{monthToggle == 2 ? 'current_month' : ''}}">{{months[2]}}月</view>
+            </view>
+            <view class="date_tooltip">
+                <view class="weeks_head"><text wx:for="{{weeks}}">{{item}}</text></view>
+            </view>
+			<view class="month_picker" catchtap="pickMonth">
+				<view class="month_view {{monthToggle == 0 ? 'show_month_view' : ''}}">
+					<block wx:for="{{monthViewArr[0]}}">
+						<text data-date="{{item.text}}" data-select="{{item.isSelect}}" data-past="{{(item === 0 || item.past === true) ? '0': '1'}}" class="date_cell {{(item !== 0 && item.past === true) ? 'past': ''}}"><text>{{item === 0 ? '' : monthArr[0][index]}}</text></text>
+					</block>
+				</view>
+				
+				<view class="month_view {{monthToggle == 1 ? 'show_month_view' : ''}}">
+					<block wx:for="{{monthViewArr[1]}}">
+						<text data-date="{{item.text}}" data-select="{{item.isSelect}}" class="date_cell"><text>{{item === 0 ? '' : monthArr[1][index]}}</text></text>
+					</block>
+				</view>
+				
+				<view class="month_view {{monthToggle == 2 ? 'show_month_view' : ''}}">
+					<block wx:for="{{monthViewArr[2]}}">
+						<text data-date="{{item.text}}" data-select="{{item.isSelect}}" class="date_cell"><text>{{item === 0 ? '' : monthArr[2][index]}}</text></text>
+					</block>
+				</view>
+			</view>
+            <view class="time_bar">
+                <view class="tb_cell">
+                    <text class="less" catchtap="hourLess"></text>
+                    <text class="tb_text">{{hour[toggleTime]}}点</text>
+                    <text class="add" catchtap="hourAdd"></text>
+                </view>
+                <view class="tb_cell">
+                    <text class="less" catchtap="minuteLess"></text>
+                    <text class="tb_text">{{minute[toggleTime]}}分</text>
+                    <text class="add" catchtap="minuteAdd"></text>
+                </view>
+            </view>
+            <view class="next_btn" catchtap="submitSearch">完成</view>
+    </view>
+</view>
+<view class="filter_modal {{showFilterModal? 'show':''}}">
+    <view class="mask" catchtap="closeFilterModal"></view>
+    <view class="content" style="{{filterNum == 2 ? 'height: 100%' : ''}}">
+        <view class="complex {{filterNum == 0 ? 'show':''}}" catchtap="toggleOrderType">
+            <text class="{{currentOrderType == 1 ? 'act' : ''}}" data-order-type="1">综合排序</text>
+            <text class="{{currentOrderType == 2 ? 'act' : ''}}" data-order-type="2">距离最近</text>
+            <text class="{{currentOrderType == 4 ? 'act' : ''}}" data-order-type="4">价格最低</text>
+            <text class="{{currentOrderType == 5 ? 'act' : ''}}" data-order-type="5">接单率高</text>
+        </view>  
+        <view class="condition {{filterNum == 1 ? 'show':''}}">
+            <view class="tit">租车价格(元/天)</view>
+            <view class="slide_bar">
+                <view class="slide_step">
+                    <text class="step step0">0</text>
+                    <text class="step step1">200</text>
+                    <text class="step step2">500</text>
+                    <text class="step step3">1000</text>
+                    <text class="step stepn">无限</text>
+                </view>
+                <view class="slide_content">
+                    <view class="slide_btn slide_lbtn" catchtouchmove="slideMove" catchtouchstart="slideStart" id="slideLeftBtn" style="left:{{slideLeft}}px"></view>
+                    <view class="slide_bg">
+                        <view class="slide_inner" style="width:{{slideBarWidth}}px;left:{{slideBarLeft}}px"></view>
+                    </view>
+                    <view class="slide_btn slide_rbtn" catchtouchmove="slideMove" catchtouchstart="slideStart" id="slideRightBtn" style="right:{{slideRight}}px"></view>                    
+                </view>
+            </view>
+            <view class="item">
+                变速箱
+                <view class="item_inner" catchtap="toggleTransmission">
+                    <text class="{{transmission == 2 ? 'act': ''}}" data-transmission="2">自动</text>
+                    <text class="{{transmission == 3 ? 'act': ''}}" data-transmission="3">手动</text>
+                    <text class="{{transmission == 1 ? 'act': ''}}" data-transmission="1">不限</text>
+                </view>
+            </view>
+            <view class="item">
+                座位数
+                <view class="item_inner" catchtap="toggleSeat">
+                    <text class="{{seat == 5 ? 'act': ''}}" data-seat="5">≤5座</text>
+                    <text class="{{seat == 6 ? 'act': ''}}" data-seat="6">≥6座</text>
+                    <text class="{{seat == 1 ? 'act': ''}}" data-seat="1">不限</text>
+                </view>
+            </view>
+            <view class="item">
+                品牌车型
+                <view class="item_inner" catchtap="handleCarData">
+                    <text class="act" data-type="0">{{carCate}}</text>
+                    <text class="act" data-type="1">{{carName}}</text>
+                </view>
+            </view>
+            <view class="btn_wrap">
+                <text class="btnl" catchtap="closeFilterModal">关闭</text>
+                <text catchtap="resetCondition">清空条件</text>
+                <text class="btnr" catchtap="submitCondition">确定</text>
+            </view>
+        </view>
+        <view class="business {{filterNum == 2 ? 'show':''}}">
+            <view class="s_wrap">
+                <scroll-view class="s_left" scroll-y catchtap="getBusiness">
+                    <block wx:for="{{districts}}">
+                        <text class="{{item.isSelect ? 'act' : ''}}" data-dis-city="{{item.text}}">{{item.text}}</text>
+                    </block>
+                </scroll-view>
+                <scroll-view class="s_right" scroll-y catchtap="handleLeasingCompanys">
+                    <view class="tit">{{district}}</view>
+                    <block wx:for="{{leasingCompanys}}">
+                        <view class="li {{item.isSelect ? 'act':''}}" data-id="{{item.id}}" data-index="{{index}}">
+                            <text class="s_tit" data-id="{{item.id}}" data-index="{{index}}">{{item.company}}</text>
+                            <text class="adr" data-id="{{item.id}}" data-index="{{index}}">{{item.address}}</text>
+                        </view>
+                    </block> 
+                </scroll-view>
+            </view>
+            <view class="btn_wrap">
+                <text class="btnl" catchtap="closeFilterModal">关闭</text>
+                <text catchtap="resetBusiness">清空条件</text>
+                <text class="btnr" catchtap="submitBusiness">确定</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="carlist_picker {{showCarlistPicker ? 'show' : ''}}">
+    <view class="cp_tit">选择品牌 <text class="close_cp" catchtap="closeCarListPicker"></text></view>
+    <view class="body {{carPickerType == 0 ? 'show_carcate':''}}">
+        <scroll-view scroll-y class="cp_left" catchtap="getCurrentEng">
+            <block wx:for="{{carCategory}}">
+                <text class="{{item.isSelect ? 'act' : ''}}" data-eng="{{index}}">{{index}}</text>
+            </block>
+        </scroll-view>
+        <scroll-view scroll-y class="cp_right" catchtap="submitCarData">
+            <block wx:for="{{currentCarNameObj}}">
+                <text data-id="{{item.id}}" data-cate-name="{{item.cate_name}}">{{item.cate_name}}</text>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="body {{carPickerType == 1 ? 'show_carname':''}}">
+        <scroll-view scroll-y class="cp_left">
+            <text>{{carCate}}</text>
+        </scroll-view>
+        <scroll-view scroll-y class="cp_right" catchtap="submitCarData">
+            <block wx:for="{{carNameArr}}">
+                <text data-id="{{item.id}}" data-car-name="{{item.cate_name}}">{{item.cate_name}}</text>
+            </block>
+        </scroll-view>
+    </view>
+</view>
+
+<import src="/template/navbar/navbar.wxml"/>
+<template is="navbar"  data="{{navConfigArr: navConfigArr}}"/>

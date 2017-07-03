@@ -1,0 +1,28 @@
+<view class="nav" catchtap="toggleStatus">
+    <text class="{{toggleStatus == 0 ? 'act':''}}" data-index="0">租客</text>
+    <text class="{{toggleStatus == 1 ? 'act':''}}" data-index="1">车主</text>
+</view>
+<view class="wrapper">
+    <view class="li">
+        <view class="select sfz" catchtap="selectPic" data-type="sfz">
+            <image src="http://192.168.1.240/kkLite/asset/up_tip.png" mode="widthFix" class="up_tip" wx:if="{{sfzIsSelect}}"></image>
+            <image src="{{sfzImg}}" mode="widthFix" class="img"></image>
+        </view>
+        <view class="tip">身份证正面</view>
+    </view>
+    <view class="li">
+        <view class="select drz" catchtap="selectPic" data-type="drz">
+            <image src="http://192.168.1.240/kkLite/asset/up_tip.png" mode="widthFix" wx:if="{{drzIsSelect}}" class="up_tip"></image>
+            <image src="{{drzImg}}" mode="widthFix" class="img"></image>
+        </view>
+        <view class="tip">驾驶证正页</view>
+    </view>
+    <view class="li">
+        <view class="select drf" catchtap="selectPic" data-type="drf">
+            <image src="http://192.168.1.240/kkLite/asset/up_tip.png" mode="widthFix" wx:if="{{drfIsSelect}}" class="up_tip"></image>
+            <image src="{{drfImg}}" mode="widthFix" class="img"></image>
+        </view>
+        <view class="tip">驾驶证副页</view>
+    </view>
+    <button class="submit_btn" hover-class="hover" catchtap="submitPic">提交</button>
+</view>

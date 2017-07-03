@@ -1,0 +1,16 @@
+<view class="item">
+    <text class="tit">手机</text>
+    <text class="c">{{phone}}</text>
+</view>
+<view class="item">
+    <text class="tit">昵称</text>
+    <input placeholder="未编辑" value="{{nickName}}"/>
+</view>
+<view class="item">
+    <text class="tit">性别</text>
+    <input disabled="true" value="{{sex}}"/>
+</view>
+<view class="item change_pw">
+    <text class="tit">修改密码</text>
+</view>
+<view class="item login_out" bindtap="loginOut">退出登录</view>

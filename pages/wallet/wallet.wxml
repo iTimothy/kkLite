@@ -1,0 +1,10 @@
+<view class="wallet_wrap">
+    <view class="con">
+        <text>账户余额（元）</text>
+        <text class="money">{{money}}</text>
+    </view>
+</view>
+<view class="tip">
+    <text>温馨提示：下载APP可以在\n\r钱包进行提现，查看明细操作</text>
+    <!--<button class="download" bindtap="download">立即下载</button>-->
+</view>

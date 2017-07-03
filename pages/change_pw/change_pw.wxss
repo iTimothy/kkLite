@@ -1,0 +1,21 @@
+.item{
+    background-color: #fff;
+    padding: 0 16rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+}
+input{
+    display: block;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1rpx solid #eee;
+    height: 91rpx;
+    line-height: 91rpx;
+    color: #bbb;
+}
+.change_pw{
+    margin-top: 18rpx;
+    text-align: center;
+    color: #e84233;
+}

@@ -1,0 +1,9 @@
+<template name="navbar">
+    <view class="placeholder"></view>
+    <view class="nav_bar">
+        <navigator url="/pages/index/index" open-type="reLaunch" class="nav_item nav_index {{navConfigArr[0].active ? 'navbar_act' : ''}}">{{navConfigArr[0].text}}</navigator>
+        <navigator url="/pages/search/search" open-type="redirect" class="nav_item nav_search {{navConfigArr[1].active ? 'navbar_act' : ''}}">{{navConfigArr[1].text}}</navigator>
+        <navigator url="/pages/order/order" open-type="redirect" class="nav_item nav_journey {{navConfigArr[2].active ? 'navbar_act' : ''}}">{{navConfigArr[2].text}}</navigator>
+        <navigator url="/pages/user/user" open-type="redirect" class="nav_item nav_my {{navConfigArr[3].active ? 'navbar_act' : ''}}">{{navConfigArr[3].text}}</navigator>
+    </view>
+</template>

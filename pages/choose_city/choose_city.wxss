@@ -1,0 +1,60 @@
+page{
+    background-color: #f7f7f7;
+   
+}
+.tit{
+    display: block;
+    color: #777;
+    padding: 15px 0 8px 0;
+    text-indent: 11px;
+}
+.city_list{
+    overflow: hidden;
+}
+.city_list text{
+    float: left;
+    background-color: #fff;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    color: #555555;
+    border-radius: 5px;
+    font-size: 1.1em;
+    width: 22%;
+    margin: 0 3% 5px 0;
+}
+.geolocation{
+    text-align: center;
+    background-color: #fff;
+    color: #e84233;
+    padding: 14rpx 0;
+}
+.geolocation text::before{
+    display: inline-block;
+    content: "";
+    width: 36rpx;
+    height: 36rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/gp.png) center center no-repeat;
+    background-size: 100% 100%;
+    vertical-align: middle;
+    margin-right: 12rpx;
+}
+.map{
+    width:100%;
+}
+.adress_list{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    height: 440rpx;
+    background-color: #fff;
+    overflow-y: auto;
+}
+.adress_list text{
+    display: block;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-bottom: 1px solid #d2d2d2;
+    padding-left: 28rpx;
+}

@@ -1,0 +1,24 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/choose_city/choose_city",
+        "pages/car/car",
+        "pages/user/user",
+        "pages/login/login",
+        "pages/user_setting/user_setting",
+        "pages/change_pw/change_pw",
+        "pages/wallet/wallet",
+        "pages/rent/rent",
+		"pages/order/order",
+        "pages/search/search",
+        "pages/order_detail/order_detail",
+        "pages/authenticate/authenticate"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#e84233",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "#fff"
+    },
+    "debug": true
+}

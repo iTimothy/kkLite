@@ -1,0 +1,120 @@
+@import "/template/navbar/navbar.wxss";
+.nav{
+    display: flex;
+    text-align: center;
+    background-color: #fff;
+    color: #bbb;
+    font-size: 16px;
+}
+.nav text{
+    position: relative;
+    flex: 1;
+    line-height: 104rpx;
+}
+.nav text::before{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 4%;
+    width: 92%;
+    height:2rpx;
+    background-color: #fff;
+}
+.nav text:first-child::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 13%;
+    width: 2rpx;
+    height: 74%;
+    background-color: #ddd;
+}
+.nav text.act{
+    color: #777;
+}
+.nav text.act::before{
+    background-color: #e84233;
+}
+.img_wrap{
+    position: relative;
+    overflow: hidden;
+}
+.img_wrap .car_pic{
+    width: 100%;
+}
+.wrapper{
+    padding: 24rpx;
+}
+.wrapper .li{
+    background-color: #fff;
+    margin-bottom: 24rpx;
+}
+.info{
+    padding: 16rpx 12rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.info text{
+    display: block;
+}
+.info .inner,.info .yuan{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 8rpx;
+}
+.info .yuan{
+    margin-right: 0;
+}
+.car_name{
+    color: #777;
+    font-size: 16px;
+}
+.car_plane{
+    color: #bbb;
+    font-size: 14px;
+}
+.money{
+    color: #e84233;
+    font-size: 16px;
+    font-weight: bold;
+}
+.btns{
+    display: flex;
+    text-align: center;
+    background-color: #fff;
+    color: #bbb;
+    font-size: 16px;
+    border-top: 2rpx solid #eee;
+    margin: 0 12rpx;
+}
+.btns .btn{
+    position: relative;
+    flex: 1;
+    line-height: 104rpx;
+    height: 104rpx;
+}
+.btns .btn:first-child::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2rpx;
+    height: 90%;
+    background-color: #eee;
+}
+.status_pic{
+    position: absolute;
+    width: 198rpx;
+    right: 40rpx;
+    bottom: 28rpx;
+}
+.finish,.running{
+    display: none;
+}
+.running.show,.finish.show{
+    display: block;
+}
+.empty{
+    text-align: center;
+}

@@ -1,0 +1,43 @@
+<view class="user_top">
+    <image src="http://192.168.1.240/kkLite/asset/b1.png" mode="aspectFill" class="user_bg"></image>
+    <text class="user_set" bindtap="userSetting">用户设置</text>
+    <view class="user_info">
+        <view class="user_head_wrap">
+            <image src="http://192.168.1.240{{headpic}}" class="user_head" mode="aspectFill"></image>
+        </view>
+        <text class="user_name">{{userName ? userName : phone}}</text>
+        <view class="user_type" catchtap="turnAuthenti">
+            <text class="{{tenant.num !== 4 ? 'run': ''}}">{{tenant.text}}</text>
+            <text class="{{carowner.num !== 4 ? 'run': ''}}">{{carowner.text}}</text>
+        </view>
+    </view>
+</view>
+<view class="user_msg">
+    <view class="li">
+        <text class="c1"><text class="b">{{countMessage}}</text>条</text>
+        <text class="c2">我的消息</text>
+    </view>
+    <view class="li">
+        <text class="c1"><text class="b">{{countCoupon}}</text>张</text>
+        <text class="c2">优惠券</text>
+    </view>
+    <view class="li">
+        <text class="c1"><text class="b">{{countCollectCar}}</text>辆</text>
+        <text class="c2">收藏的车</text>
+    </view>
+</view>
+<view class="item" catchtap="turnToWallet">
+    <text>我的钱包</text>
+    <text class="money">{{userMoney}}元</text>
+</view>
+<view class="item">
+    <text>帮助中心</text>
+</view>
+<view class="item" wx:if="{{carowner.num === 4}}">
+    <text>车辆管理</text>
+</view>
+<view class="item" wx:if="{{carowner.num === 4}}">
+    <text>出租订单</text>
+</view>
+<import src="/template/navbar/navbar.wxml"/>
+<template is="navbar"  data="{{navConfigArr: navConfigArr}}"/>

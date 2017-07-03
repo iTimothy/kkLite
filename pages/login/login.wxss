@@ -1,0 +1,62 @@
+page{
+	background: #000 url(http://192.168.1.240/kkLite/asset/lg_bg.png) 0 bottom no-repeat;
+	background-size: 100%;
+}
+.ph{
+	color: #555;
+}
+.wrap{
+	position: relative;
+	width: 80%;
+	margin: 0 auto 20rpx;
+	padding-left: 100rpx;
+	box-sizing: border-box;
+	background-color: rgba(255, 255, 255, .1);
+	border-radius: 500px;
+}
+.wrap:first-child{
+	margin-top: 300rpx;
+}
+input{
+	display: block;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: #bbb;
+	border:0;	
+}
+.wrap::before{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100rpx;
+	height: 100rpx;
+	content: "";
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 40%;
+}
+.tel_wrap::before{
+	background-image: url(http://192.168.1.240/kkLite/asset/phone.png)
+}
+.pw_wrap::before{
+	background-image: url(http://192.168.1.240/kkLite/asset/password.png)
+}
+.login_wrap{
+	margin: 0 autp 20rpx;
+	padding: 0;
+	background: transparent;
+}
+.login_btn{
+	border: 0;
+	border-radius: 500px;
+	background-color: rgba(255, 255, 255, .3);
+	color: #bbb;
+	font-size: 16px;
+	height: 100rpx;
+	line-height: 100rpx;
+	text-align: center;
+}
+.btn_hover{
+	background-color: rgba(255, 255, 255, .5);
+	color: #fff;
+}

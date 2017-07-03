@@ -1,0 +1,121 @@
+@import "/template/navbar/navbar.wxss";
+page{
+    background-color: #f7f7f7;
+    font-size: 14px;
+}
+.user_top{
+    position: relative;
+    height: 290rpx;
+    overflow: hidden;
+}
+.user_top .user_bg{
+    width: 100%;
+}
+.user_set{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10rpx 22rpx;
+    color: #fff;
+}
+.user_info{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 6;
+}
+.user_head_wrap{
+    position: absolute;
+    left: 0;
+    bottom:0;
+    width: 136rpx;
+    height: 136rpx;
+    overflow: hidden;
+    border: 2rpx solid #d4d4d4;
+    border-radius: 100%;
+    margin: 0 30rpx;
+    z-index: 10;
+}
+.user_head_wrap .user_head{
+    width: 100%;
+    height: 100%;
+}
+.user_name{
+    position: absolute;
+    left: 210rpx;
+    bottom: 86rpx;
+    color: #fff;
+    font-size: 20px;
+}
+.user_type{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 18rpx 0 18rpx 196rpx;   
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.user_type text{
+    padding: 4rpx 22rpx;
+    color: #bbb;
+    border: 1px solid #eee;
+    border-radius: 300px;
+    font-size: 12px;
+    margin-right: 22rpx;
+}
+.user_type .run{
+    border-color: #e84233;
+    color: #e84233;
+}
+.user_msg{
+    padding: 18rpx 0;
+    display: flex;
+    background: -webkit-linear-gradient(top, #f7f7f7, #ffffff);
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+}
+.user_msg .li{
+    flex: 1;
+}
+.user_msg .c1{
+    display: block;
+    color: #e84233;
+}
+.user_msg .c2{
+    display: block;
+}
+.user_msg .b{
+    font-size: 24px;
+}
+.item{
+    padding-left: 20rpx;
+    position: relative;
+    height: 100rpx;
+    line-height: 100rpx;
+    background-color: #fff;
+    margin-top: 20rpx;
+    color: #777;
+}
+.item text{
+    line-height: 100rpx;
+}
+.item .money{
+    position: absolute;
+    right: 100rpx;
+    top:0;
+    color: #e84233;
+}
+.item::after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: "";
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/arrow_r.png) center center no-repeat;
+    background-size: 40% 40%;
+}

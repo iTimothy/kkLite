@@ -1,0 +1,42 @@
+page{
+    background-color: #fff;
+}
+.wallet_wrap{
+    position: relative;
+    height: 400rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/wallet.png) center center no-repeat;
+    background-size: 100%; 
+    text-align: center;
+}
+.wallet_wrap .con{
+    position: absolute;
+    left: 0;
+    top: 150rpx;
+    width: 100%;
+}
+text{
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10rpx;
+}
+.wallet_wrap .money{
+    font-size: 28px;
+}
+.tip{
+    padding-top: 80rpx;
+}
+.tip text{
+    color: #bbb;
+    text-align: center;
+    padding-bottom: 24rpx;
+}
+
+.download{
+    width: 40%;
+    font-size: 16px;
+    color: #e84233;
+    background-color: #fff;
+    border-radius: 150px;
+    border:1px solid #e84233;
+}

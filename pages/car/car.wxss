@@ -1,0 +1,401 @@
+
+page{
+    color: #555;
+}
+.page_wrap{
+    height: 800px;
+    overflow-y: hidden;
+}
+.tool_bar,.tool_bar_inner,.tool_bar_bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80rpx;
+    z-index: 1000;
+    overflow: hidden;
+    text-align: center;
+}
+.tool_bar .tb_back{
+    float: left;
+    width: 80rpx;
+    height: 80rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/back2.png) center center no-repeat;
+    background-size: 45% 45%;
+}
+.tool_bar .tb_text{
+    line-height: 80rpx;
+    font-size: 16px;
+    color: #fff;
+    opacity: 0;
+}
+.tool_bar .tb_home{
+    float: right;
+    width: 80rpx;
+    height: 80rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/home.png) center center no-repeat;
+    background-size: 50% 50%;
+}
+.tool_bar_bg{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1001;
+}
+.tool_bar_show{
+     background-color: rgba(0, 0, 0, .5);
+}
+.tool_bar_show .tb_text{
+    opacity: 1;
+}
+.tool_bar_inner{
+    position: absolute;
+    z-index: 1002;
+}
+.car_imgs{
+    position: relative;
+}
+.banner_swiper{
+     height: 206px;
+}
+.banner_swiper image{
+    display: block;
+    width: 100%;
+}
+.fl_1,.fl_2,.fl_3,.fl_4,.fl_5{
+    background-color: #fff;
+    margin-bottom: 18rpx;
+}
+.car_name_container{
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    color: #fff;
+}
+.car_name{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 8px 0 4px;
+}
+.money_day{
+     color: #e84233;
+     font-size: 18px;
+}
+.money_day::before{
+    content:"￥";
+    display: inline-block;
+   font-size: 14px;
+}
+.money_day::after{
+    content:"/天";
+    display: inline-block;
+    font-size: 15px;
+}
+.money_hour{
+     color: #bbb;
+     font-size: 14px;
+     margin-left: 20px;
+}
+.money_hour::before{
+    content:"￥";
+    display: inline-block;
+   font-size: 12px;
+}
+.money_hour::after{
+    content:"/时";
+    display: inline-block;
+    font-size: 12px;
+}
+.car_info{
+    position: relative;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 0 14px;
+    border-bottom: 1px dashed #ddd;
+}
+.like{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    display: inline-block;
+    width:36rpx;
+    height: 36rpx;
+    margin-top: -18rpx; 
+    background: transparent center center no-repeat;
+    background-size: 100% 100%;
+}
+.likeed{
+    background-image: url(http://192.168.1.240/kkLite/asset/collect1.png);
+}
+.nolike{
+     background-image: url(http://192.168.1.240/kkLite/asset/collect0.png);
+}
+.car_desc{
+    padding: 14rpx 0 24rpx;
+    margin: 0 14px;
+    font-size:12px; 
+    color: #bbb;
+}
+.car_desc text{
+     margin-right: 20rpx;
+}
+.car_desc text::before{
+    content: "";
+    display: inline-block;
+    width:8rpx;
+    height: 8rpx;
+    background-color:#bbb;
+    border-radius: 100%;
+    vertical-align: middle;
+    margin: 6rpx;
+}
+.fl_3,.fl_4,.fl_5,.fl_6{
+    padding:10rpx 16rpx;
+}
+.fl_3 text,.fl_4 text{
+    display: block;
+}
+.fl_3 .tit,.fl_4 .tit,.fl_5 .tit,.fl_6 .tit{
+    padding: 20rpx 0;
+    text-align: center;
+}
+.fl_3 .car_adress,.fl_4 .car_plate,.fl_5 .accept_person{
+    margin-bottom: 14rpx;
+    text-align: center;
+}
+.map_container{
+    height: 178px;
+}
+.map_pic{
+    width: 100%;
+}
+.car_post_adress{
+    display: block;
+    text-align: left;
+    padding-left: 10px;
+}
+.car_post_adress text{
+    display: inline-block;
+    color: #777;
+    margin-left: 12rpx;
+}
+.fl_2{
+
+}
+.fl_2 .now_date{
+    display: block;
+    text-align: center;
+    padding: 34rpx 0 12rpx;
+}
+.rent_tip{
+    display: flex;
+    padding-bottom: 12rpx;
+}
+.rent_tip .item{
+    flex: 1;
+    text-align: center;
+}
+
+.rent_tip .item text::before{
+    content: "";
+    display: inline-block;
+    width:28rpx;
+    height: 28rpx;
+    border:1px solid #ddd;
+    border-radius: 100%;
+    margin-right: 8rpx;
+    vertical-align: middle;
+}
+.can_rent::before{
+    background-color: #ddd;
+}
+.row{
+    display: flex;
+    text-align: center;
+}
+.row text{
+    flex: 1;
+}
+.date_modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow-y: scroll; 
+    z-index: 1200;
+}
+.date_modal.show{
+    display: block;
+    
+}
+.date_tooltip{
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    background-color: #fff;
+}
+.date_place{
+    height: 250rpx;
+}
+.cell{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 101;
+    width: 100%;
+}
+.oly{
+    overflow-y: scroll;
+}
+.date_modal .close_modal{
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+.date_modal .rent_tip{
+    background-color: #f7f7f7;
+    padding: 16rpx 0;
+}
+.date_modal .close_modal text{
+    z-index: 102;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    height: 80rpx;
+    width: 80rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/close.png) center center no-repeat;
+    background-size: 50% 50%;
+}
+.date_bg{
+    background-color: #fff;
+
+}
+.weeks_head{
+    background-color: #f7f7f7;
+    display: flex;
+    padding: 16rpx 0;
+}
+.weeks_head text{
+    flex: 1;
+    text-align: center;
+}
+.month_view,.current_month_view{
+    display: block;
+    overflow: hidden;
+    font-size:12px;
+}
+.month_view .date_cell,.current_month_view .date_cell{
+    float: left;
+    width: 14.28%;
+    height: 78rpx;
+    line-height: 78rpx;
+    text-align: center;
+}
+.month_head{
+    line-height: 80rpx;
+    text-align: center;
+    border-bottom: 1px solid #e2e2e2;
+    color: #a5a5a5;
+}
+.past_date{
+    color: #dedede;
+}
+.current_month_view .date_cell text{
+    display: inline-block;
+    /*border: 1px solid #0f0;*/
+    height: 60rpx;
+    width: 60rpx;
+    line-height: 60rpx;
+    border-radius: 100%;
+    
+}
+.car_features{
+    overflow: hidden
+}
+.car_features .li{
+    color: #ababab;
+    width: 41%;
+    float: left;
+    padding: 10px 0 10px 9%;
+}
+.car_features image{
+    width: 60rpx;
+    height: 80rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+.car_features .li text{
+    display: inline-block;
+    padding-left: 2rpx;   
+}
+.accept_person{
+    font-size: 12px;
+}
+.owner_comm{
+    color: #a9a9a9;
+    line-height: 1.6;
+    padding-bottom: 12rpx;
+}
+.owner_tip{
+    border-bottom: 2rpx solid #eee;
+}
+.owner_comm text{
+    color: #777;
+}
+.owner_rate{
+    line-height: 40px;
+    padding: 0;
+}
+.star{
+    display: inline-block;
+    width: 34rpx;
+    height: 32rpx;
+    background: transparent url(http://192.168.1.240/kkLite/asset/star_01.png) center center no-repeat;
+    background-size: 100% 100%;
+}
+.star_sel{
+    background-image: url(http://192.168.1.240/kkLite/asset/star_02.png)
+}
+.comment_list .li{
+    display: block;
+    font-size: 12px;
+    overflow: hidden;
+    padding: 10rpx 0;
+}
+.comment_name{
+    float: left;
+    width: 110rpx;
+}
+.comment_date{
+    float: left;
+    color: #a9a9a9;
+}
+.star_wrap{
+    float: right;
+    text-align: right;
+}
+.fl_6{
+    color: #a9a9a9;
+    background-color: #fff;
+    margin-bottom: 106rpx;
+    
+}
+.fl_6 .tit{
+    color: #777;
+}
+.submit_btn{
+    position: fixed;
+    left: 0;
+    bottom:0;
+    margin: 0;
+    height: 88rpx;
+    background-color: #e84233;
+    color: #fff;
+    border-radius: 0;
+    width: 100%;
+    font-size: 16px;
+}

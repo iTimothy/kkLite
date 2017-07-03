@@ -1,0 +1,61 @@
+<view class="nav" catchtap="toggleOrder">
+    <text class="{{toggleOrderType == 0 ? 'act':''}}" data-index="0">进行中</text>
+    <text class="{{toggleOrderType == 1 ? 'act':''}}" data-index="1">已完成</text>
+</view>
+<view class="wrapper">
+    <view class="running {{toggleOrderType == 0 ? 'show':''}}">
+        <view wx:if="{{runningListOrder.length === 0}}" class="empty">暂无进行中的租车订单</view>
+        <block wx:for="{{runningListOrder}}">
+            <view class="li">
+                <view class="img_wrap">
+                    <image class="car_pic"   src="http://192.168.1.240{{item.imagePic}}" mode="widthFix"></image>
+                    <image src="{{statusObj[item.orderState]}}" class="status_pic" mode="widthFix"></image>
+                </view>
+                <view class="info">
+                    <view class="car">
+                        <text class="car_name">{{item.carName}}</text>
+                        <text class="car_plane">{{item.plateNum}}</text>
+                    </view>
+                    <view class="money">
+                        <text><text class="inner">租金:</text>￥{{item.rent}}<text class="yuan">元</text></text>
+                        <text><text class="inner">押金:</text>￥{{item.rentCarMoney}}<text class="yuan">元</text></text>
+                    </view>
+                </view>
+                <view class="btns">
+                    <view class="btn">{{item.btnTxt}}</view>
+                    <view class="btn" catchtap="cancelOrder" data-id="{{item.id}}">取消订单</view>
+                </view>
+            </view>
+        </block>
+        
+    </view>
+    <view class="finish {{toggleOrderType == 1 ? 'show':''}}">
+        <view wx:if="{{finishListOrder.length === 0}}" class="empty">暂无完成的租车订单</view>
+         <block wx:for="{{finishListOrder}}">
+            <view class="li">
+                <view class="img_wrap">
+                    <image class="car_pic"   src="http://192.168.1.240{{item.imagePic}}" mode="widthFix"></image>
+                    <image src="{{statusObj[item.orderState]}}" class="status_pic" mode="widthFix"></image>
+                </view>
+                <view class="info">
+                    <view class="car">
+                        <text class="car_name">{{item.carName}}</text>
+                        <text class="car_plane">{{item.plateNum}}</text>
+                    </view>
+                    <view class="money">
+                        <text><text class="inner">租金:</text>￥{{item.rent}}<text class="yuan">元</text></text>
+                        <text><text class="inner">押金:</text>￥{{item.rentCarMoney}}<text class="yuan">元</text></text>
+                    </view>
+                </view>
+                <view class="btns" catchtap="handleBtn">
+                    <view class="btn" data-carid="{{item.carId}}">{{item.rentCommentType ? '再次租用': '去评论'}}</view>
+                    <view class="btn" data-id="{{item.id}}">查看订单</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+
+
+<import src="/template/navbar/navbar.wxml"/>
+<template is="navbar"  data="{{navConfigArr: navConfigArr}}"/>
