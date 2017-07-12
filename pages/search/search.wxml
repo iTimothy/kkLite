@@ -18,7 +18,7 @@
         <text class="{{filterNum == 2 ? 'act': ''}}" data-index="2">选择商家</text>
     </view>
     <scroll-view class="car_list" scroll-y="true" enable-back-to-top="true">
-    <view class="car_item" wx:for="{{carList}}"  bindtap="turnToCar" data-id="{{item.carId}}">
+    <view class="car_item" wx:for="{{carList}}" wx:key="{{item.carId}}"  bindtap="turnToCar" data-id="{{item.carId}}" wx:key="{{item.carId}}">
         <view class="img_wrap">
         <image src="{{item.imagePic}}" data-index="{{index}}"></image>
         </view>
@@ -63,23 +63,23 @@
                 <view data-index="2" class="month_head {{monthToggle == 2 ? 'current_month' : ''}}">{{months[2]}}月</view>
             </view>
             <view class="date_tooltip">
-                <view class="weeks_head"><text wx:for="{{weeks}}">{{item}}</text></view>
+                <view class="weeks_head"><text wx:for="{{weeks}}" wx:key="{{index}}">{{item}}</text></view>
             </view>
 			<view class="month_picker" catchtap="pickMonth">
 				<view class="month_view {{monthToggle == 0 ? 'show_month_view' : ''}}">
-					<block wx:for="{{monthViewArr[0]}}">
+					<block wx:for="{{monthViewArr[0]}}" wx:key="{{index}}">
 						<text data-date="{{item.text}}" data-select="{{item.isSelect}}" data-past="{{(item === 0 || item.past === true) ? '0': '1'}}" class="date_cell {{(item !== 0 && item.past === true) ? 'past': ''}}"><text>{{item === 0 ? '' : monthArr[0][index]}}</text></text>
 					</block>
 				</view>
 				
 				<view class="month_view {{monthToggle == 1 ? 'show_month_view' : ''}}">
-					<block wx:for="{{monthViewArr[1]}}">
+					<block wx:for="{{monthViewArr[1]}}" wx:key="{{index}}">
 						<text data-date="{{item.text}}" data-select="{{item.isSelect}}" class="date_cell"><text>{{item === 0 ? '' : monthArr[1][index]}}</text></text>
 					</block>
 				</view>
 				
 				<view class="month_view {{monthToggle == 2 ? 'show_month_view' : ''}}">
-					<block wx:for="{{monthViewArr[2]}}">
+					<block wx:for="{{monthViewArr[2]}}" wx:key="{{index}}">
 						<text data-date="{{item.text}}" data-select="{{item.isSelect}}" class="date_cell"><text>{{item === 0 ? '' : monthArr[2][index]}}</text></text>
 					</block>
 				</view>
@@ -158,13 +158,13 @@
         <view class="business {{filterNum == 2 ? 'show':''}}">
             <view class="s_wrap">
                 <scroll-view class="s_left" scroll-y catchtap="getBusiness">
-                    <block wx:for="{{districts}}">
+                    <block wx:for="{{districts}}" wx:key="{{index}}">
                         <text class="{{item.isSelect ? 'act' : ''}}" data-dis-city="{{item.text}}">{{item.text}}</text>
                     </block>
                 </scroll-view>
                 <scroll-view class="s_right" scroll-y catchtap="handleLeasingCompanys">
                     <view class="tit">{{district}}</view>
-                    <block wx:for="{{leasingCompanys}}">
+                    <block wx:for="{{leasingCompanys}}" wx:key="{{index}}">
                         <view class="li {{item.isSelect ? 'act':''}}" data-id="{{item.id}}" data-index="{{index}}">
                             <text class="s_tit" data-id="{{item.id}}" data-index="{{index}}">{{item.company}}</text>
                             <text class="adr" data-id="{{item.id}}" data-index="{{index}}">{{item.address}}</text>
@@ -184,12 +184,12 @@
     <view class="cp_tit">选择品牌 <text class="close_cp" catchtap="closeCarListPicker"></text></view>
     <view class="body {{carPickerType == 0 ? 'show_carcate':''}}">
         <scroll-view scroll-y class="cp_left" catchtap="getCurrentEng">
-            <block wx:for="{{carCategory}}">
+            <block wx:for="{{carCategory}}" wx:key="{{index}}">
                 <text class="{{item.isSelect ? 'act' : ''}}" data-eng="{{index}}">{{index}}</text>
             </block>
         </scroll-view>
         <scroll-view scroll-y class="cp_right" catchtap="submitCarData">
-            <block wx:for="{{currentCarNameObj}}">
+            <block wx:for="{{currentCarNameObj}}" wx:key="{{index}}">
                 <text data-id="{{item.id}}" data-cate-name="{{item.cate_name}}">{{item.cate_name}}</text>
             </block>
         </scroll-view>
@@ -199,7 +199,7 @@
             <text>{{carCate}}</text>
         </scroll-view>
         <scroll-view scroll-y class="cp_right" catchtap="submitCarData">
-            <block wx:for="{{carNameArr}}">
+            <block wx:for="{{carNameArr}}" wx:key="{{index}}">
                 <text data-id="{{item.id}}" data-car-name="{{item.cate_name}}">{{item.cate_name}}</text>
             </block>
         </scroll-view>

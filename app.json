@@ -9,7 +9,7 @@
         "pages/change_pw/change_pw",
         "pages/wallet/wallet",
         "pages/rent/rent",
-		"pages/order/order",
+	"pages/order/order",
         "pages/search/search",
         "pages/order_detail/order_detail",
         "pages/authenticate/authenticate"

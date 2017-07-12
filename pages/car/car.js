@@ -329,8 +329,8 @@ Page({
           url: '/pages/index/index'
       })
   },
-  pageScorll(event){
-        if (event.detail.scrollTop >= 150) {
+  onPageScroll(event){
+        if (event.scrollTop >= 150) {
             this.setData({
                 moveClass: true
             })

@@ -2,10 +2,6 @@
 page{
     color: #555;
 }
-.page_wrap{
-    height: 800px;
-    overflow-y: hidden;
-}
 .tool_bar,.tool_bar_inner,.tool_bar_bg{
     position: fixed;
     left: 0;
@@ -381,8 +377,11 @@ page{
 .fl_6{
     color: #a9a9a9;
     background-color: #fff;
-    margin-bottom: 106rpx;
+ 
     
+}
+.fl_6_place{
+       height: 106rpx;
 }
 .fl_6 .tit{
     color: #777;
@@ -393,9 +392,12 @@ page{
     bottom:0;
     margin: 0;
     height: 88rpx;
+    line-height: 88rpx;
     background-color: #e84233;
     color: #fff;
     border-radius: 0;
     width: 100%;
     font-size: 16px;
+    padding: 0;
+    margin: 0;
 }

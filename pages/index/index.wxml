@@ -2,8 +2,8 @@
   <view class="position" bindtap="chooseCity">{{adress}}</view>
   <view class="banner_container">
     <swiper class="banner_swiper" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-      <block wx:for="{{imgUrls}}">
-        <swiper-item>
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item >
           <image src="{{item}}" class="slide-image" mode="widthFix"/>
         </swiper-item>
       </block>
@@ -29,7 +29,7 @@
   <view><text class="near_tit">附近车辆</text></view>
 
   <scroll-view class="car_list" scroll-y="true" enable-back-to-top="true">
-    <view class="car_item" wx:for="{{carList}}"  bindtap="turnToCar" data-id="{{item.carId}}">
+    <view class="car_item" wx:for="{{carList}}"  bindtap="turnToCar" data-id="{{item.carId}}" wx:key="{{item.carId}}">
       <view class="img_wrap">
         <image src="{{item.imagePic}}" data-index="{{index}}" binderror="imgLoadErr"></image>
       </view>
